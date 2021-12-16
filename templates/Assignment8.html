@@ -1,0 +1,25 @@
+{% extends 'base8.html' %}
+
+
+{% block title %} Assignment8 Page {% endblock %}
+
+{% block content %}
+    {{ super () }}
+    {% set page_name = 'Home_8' %}
+    <h1>Welcome to {{page_name}} Page</h1>
+    <h1>About Me....</h1>
+
+    {% if logged %}
+        <h3>You Are Logged </h3>
+        <h2> My name: {{ profile.name | default('unknown', true) | upper() }} {{ profile.secondName | default('unknown', true) | upper() }}</h2>
+        <h2> Study in: {{ university }}</h2>
+        <h2> My Hobbies:</h2>
+        <ol>
+            {% for hobby in hobbies %}
+                <li>{{ hobby}}</li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <h3>You Should Log In </h3>
+    {% endif %}
+{% endblock %}

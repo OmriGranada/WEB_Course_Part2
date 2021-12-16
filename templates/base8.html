@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css8.css">
+</head>
+<body>
+
+{% include 'header8.html' %}
+<hr>
+{% block content %}
+<h3> Message from Base page</h3>
+
+{% endblock %}
+<hr>
+{% include 'footer8.html' %}
+
+
+</body>
+</html>

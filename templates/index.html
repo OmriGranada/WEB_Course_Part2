@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+    {{ super () }}
+    {% set page_name = 'home' %}
+    <h1>Welcome to {{page_name}} Page</h1>
+    <h2>BGU</h2>
+
+    {% if name %}
+        <h3><a href="/about"> info about me</a> </h3>
+    {% else %}
+        <h3>Log in </h3>
+    {% endif %}
+{% endblock %}

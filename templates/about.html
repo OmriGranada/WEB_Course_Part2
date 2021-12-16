@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} About Page {% endblock %}
+
+{% block content %}
+    <h1>About Me....</h1>
+    <!--<h2> My name: {{ profile.name | default('unknown', true) | upper() }} {{ profile.secondName | default('unknown', true) | upper() }}</h2>-->
+    <h2> Profile Details</h2>
+    {% for key, value in profile.items() %}
+        {{key }} : {{value | upper()}} <!-- in this way we cannot do default filter -->
+        <br>
+    {% endfor %}
+    <h2> Study in: {{ university }}</h2>
+    <h2> Degrees:</h2>
+    <ol>
+        {% for degree in degrees %}
+            <li>{{ degree}}</li>
+        {% endfor %}
+    </ol>
+    <ul>
+        {% for hobby in hobbies %}
+            <li>{{ hobby}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
