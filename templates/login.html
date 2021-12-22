@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Login Page {% endblock %}
+
+{% block content %}
+    <h1> weblcome to Login page</h1>
+
+    {% if session.username %}
+        <h3>Welcome Back {{session.username}}</h3>
+    {% else %}
+        <h1> Please Login</h1>
+        <form action="/login" method="POST"> <!-- action = where do we want to be after pressing send-->
+            User Name: <input name="username" type="text"><br><br>
+            Password: <input name="password" type="password"><br><br>
+            <input type="submit">
+        </form>
+    {% endif %}
+{% endblock %}
+
+
+
+
+

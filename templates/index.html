@@ -6,6 +6,8 @@
     {{ super () }}
     {% set page_name = 'home' %}
     <h1>Welcome to {{page_name}} Page</h1>
+    <h2>Welcome, {{session.username | default('Guest', true)}} </h2>
+
     <h2>BGU</h2>
 
     {% if name %}

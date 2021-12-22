@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="/static/css8.css">
+    <link rel="stylesheet" href="/static/css/css8.css">
 </head>
 <body>
 
 {% include 'header8.html' %}
 <hr>
 {% block content %}
-<h3> Message from Base page</h3>
+    <!--<h3> Message from Base page</h3>-->
+    <h2>Welcome, {{session.username | default('Guest', true)}} </h2>
+
 
 {% endblock %}
 <hr>
 {% include 'footer8.html' %}
-
 
 </body>
 </html>

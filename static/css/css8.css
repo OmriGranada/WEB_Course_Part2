@@ -1,0 +1,15 @@
+*{
+    background-image: url("/static/images/floor-tile.png");
+}
+
+footer {
+    text-align:left;
+}
+
+h1 {
+    text-align:left;
+}
+
+img {
+    max-width:20%;
+}

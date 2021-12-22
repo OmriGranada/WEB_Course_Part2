@@ -3,10 +3,11 @@
 {% block title %} Home Page {% endblock %}
 
 {% block content %}
-    <!--{{ super () }}-->
     {% set page_name = 'Home_8' %}
     <h1>Welcome to {{page_name}} Page</h1>
-    <p>This page is only to demonstrate the super() function</p>
+    {{ super () }}
+    <!--<h2>Welcome, {{session.username | default('Guest', true)}} </h2>-->
+    <!--<p>This page is only to demonstrate the super() function</p>-->
 <!--
     {% if name %}
         <h3><a href="/about"> info about me</a> </h3>

@@ -4,6 +4,18 @@
 
 {% block content %}
     <h1> weblcome to catalog</h1>
+    <form action="/catalog" method="GET"> <!-- action = where do we want to be after pressing send-->
+        product: <input name="product" type="text"><br><br>
+        size: <input name="size" type="text"><br><br>
+        <input type="submit">
+    </form>
+    {% if p_name %}
+        <h3>you picked product: {{p_name}}</h3>
+    {% endif %}
+    {% if p_size %}
+        <h3>you picked size: {{p_size}}</h3>
+    {% endif %}
+
 
 {% endblock %}
 

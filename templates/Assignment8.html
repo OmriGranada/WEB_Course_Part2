@@ -4,9 +4,10 @@
 {% block title %} Assignment8 Page {% endblock %}
 
 {% block content %}
-    {{ super () }}
-    {% set page_name = 'Home_8' %}
+    {% set page_name = 'Assignment 8' %}
     <h1>Welcome to {{page_name}} Page</h1>
+    <!--<h2>Welcome, {{session.username | default('Guest', true)}} </h2>-->
+    {{ super () }}
     <h1>About Me....</h1>
 
     {% if logged %}

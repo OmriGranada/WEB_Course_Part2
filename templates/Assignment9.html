@@ -1,0 +1,45 @@
+{% extends 'base8.html' %}
+
+{% block title %} Assignment9 Page {% endblock %}
+
+
+{% block content %}
+    {% set page_name = 'Assignment 9' %}
+    <h1>Welcome to {{page_name}} Page</h1>
+    <hr>
+    <!--<h2>Welcome, {{session.username | default('Guest', true)}} </h2>-->
+    {{ super () }}
+    <hr>
+
+    {% if session.username %}
+        <button><a href="/LogOut"> Please Press to Log Out</a></button>
+    {% else %}
+        <h1> Please Login</h1>
+        <form action="/Assignment9" method="POST"> <!-- action = where do we want to be after pressing send-->
+            Username: <input name="username" type="text"><br><br>
+            Password: <input name="password" type="password"><br><br>
+            <input type="submit">
+        </form>
+    {% endif %}
+    <hr>
+
+    <h2>Users Search</h2>
+    <form action="/Assignment9" method="GET"> <!-- action = where do we want to be after pressing send-->
+        email: <input name="user_email" type="email"><br><br>
+        <input type="submit" value="search user">
+    </form>
+
+    <h2>Search Results</h2>
+    {% if result_email %}
+        name: {{result_name}} <br>
+        email: {{result_email}}
+    {% elif users_List %}
+        <h3>User not found</h3>
+        <ul>
+            {% for user, user_info in users_List.items() %}
+                <li> {{user}} : {{user_info}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}
