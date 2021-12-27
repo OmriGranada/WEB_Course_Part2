@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'login' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('login.static', filename='css/login.css') }}"/>
+{% endblock %}
+
+{% block page_body_content %}
+    <h1>login</h1>
+    <p>This is an example login page</p>
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('login.static', filename='js/login.js') }}"></script>
+{% endblock %}

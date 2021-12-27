@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'payment' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('payment.static', filename='css/payment.css') }}"/>
+{% endblock %}
+
+{% block page_body_content %}
+    <h1>payment</h1>
+    <p>This is an example payment page</p>
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('payment.static', filename='js/payment.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'tours' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('tours.static', filename='css/tours.css') }}"/>
+{% endblock %}
+
+{% block page_body_content %}
+    <h1>tours</h1>
+    <p>This is an example tours page</p>
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('tours.static', filename='js/tours.js') }}"></script>
+{% endblock %}

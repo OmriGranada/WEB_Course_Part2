@@ -1,0 +1,31 @@
+
+
+
+<header>
+    <h1> This is the header </h1>
+
+    <link rel="stylesheet" href="{{ url_for('header.static', filename='css/header.css') }}"/>
+
+    {%
+        set header_items = {
+            'homepage': '/',
+            'aboutUs': url_for('aboutUs.index'),
+            'login': url_for('login.index'),
+        }
+    %}
+
+{% for item in header_items %}
+    <li>
+        <a
+            href="{{ header_items[item] }}"
+            {% if header_items[item] == request.path %}
+                class="active"
+            {% endif %}
+        >{{ item | capitalize }}</a>
+    </li>
+{% endfor %}
+
+</header>
+
+
+

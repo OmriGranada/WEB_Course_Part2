@@ -1,0 +1,11 @@
+.footer ul {
+    padding: 0;
+}
+
+.footer > ul > li {
+    display: inline-block;
+}
+
+.footer > ul li a.active {
+    color: var(--active-menu-item-color);
+}

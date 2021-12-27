@@ -13,4 +13,4 @@ def index():
 @homepage.route('/homepage')
 @homepage.route('/home')
 def redirect_homepage():
-    return redirect(url_for('homepage.index'))
+    return redirect(url_for('index'))

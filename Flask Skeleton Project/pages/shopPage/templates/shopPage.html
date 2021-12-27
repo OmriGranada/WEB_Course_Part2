@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'shopPage' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('shopPage.static', filename='css/shopPage.css') }}"/>
+{% endblock %}
+
+{% block page_body_content %}
+    <h1>shopPage</h1>
+    <p>This is an example shopPage page</p>
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('shopPage.static', filename='js/shopPage.js') }}"></script>
+{% endblock %}

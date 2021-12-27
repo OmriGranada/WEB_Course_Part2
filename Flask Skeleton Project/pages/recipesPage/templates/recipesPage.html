@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'recipesPage' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('recipesPage.static', filename='css/recipesPage.css') }}"/>
+{% endblock %}
+
+{% block page_body_content %}
+    <h1>recipesPage</h1>
+    <p>This is an example recipesPage page</p>
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('recipesPage.static', filename='js/recipesPage.js') }}"></script>
+{% endblock %}
