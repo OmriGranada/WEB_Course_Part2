@@ -3,8 +3,12 @@ from flask import render_template
 from flask import request
 from flask import session
 
+
 app = Flask(__name__)
 app.secret_key ='123' # must be when we use session, for every project
+
+from pages.Assignment10.Assignment10 import Assignment10
+app.register_blueprint(Assignment10)
 
 # Create list of users as a dictionary
 users = {'user1': {'name': 'Drori', 'email': 'drori@gmail.com'},
@@ -73,6 +77,7 @@ def Assignment9_func():
             # session['user_inside'] = True
             return render_template('Assignment9.html')
     return render_template('Assignment9.html')
+
 
 
 if __name__ == '__main__':

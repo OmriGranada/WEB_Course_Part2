@@ -91,6 +91,13 @@ def login_func():
             render_template('login.html')
 
 
+app.route('/req_frontend')
+def req_frontend_func():
+    return render_template('req_frontend.html')
+
+app.route('/req_backend')
+def req_backend_func():
+    return render_template('req_backend.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
