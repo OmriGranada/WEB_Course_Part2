@@ -16,7 +16,7 @@
     <button onclick="get_users()">Get User</button>
 
     <h2> From Backend</h2>
-    <form action="/backend">
+    <form action="/Assignment11/outer_source">
         <input type="number" name="user_id">
         <input type="submit" value="Get User">
     </form>
@@ -31,15 +31,6 @@
     {% endfor %}
 {% endif %}
 
-<!--
-{% if user %}
-    <h3> User {{ user['data']['id'] }}: </h3>
-    <img src= "{{ user['data']['avatar'] }}" alt="pic">
-    <h4> Name: {{ user['data']['first_name'] }} {{ user['data']['last_name'] }}</h4>
-    <h4> Email: {{ user['data']['email'] }}</h4>
-    <hr>
-{% endif %}
--->
 <script src="../static/fetch.js"></script>
 
 {% endblock %}

@@ -100,9 +100,9 @@ def assignment11_users_fun():
         }
     return jsonify(return_dict)
 
-@app.route('/Assignment11/outer_source')
-def assignment11_outer_source_fun():
-    return render_template('/outer_source.html')
+# @app.route('/Assignment11/outer_source')
+# def assignment11_outer_source_fun():
+#     return render_template('/outer_source.html')
 
 
 def get_user(id):
@@ -120,8 +120,8 @@ def get_user(id):
             users.append(res)
     return users
 
-@app.route('/backend')
-def backend_func():
+@app.route('/Assignment11/outer_source')
+def Assignment11_outer_source_func():
     users = get_user("")
     if "user_id" in request.args:
         user_id = request.args['user_id']
