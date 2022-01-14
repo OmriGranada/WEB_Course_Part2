@@ -1,8 +1,13 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 from flask import render_template
 from flask import request
 from flask import session
-
+from interact_with_DB import *
+import requests
+import random
+from flask import jsonify
+import asyncio
+# import aiohttp
 
 app = Flask(__name__)
 app.secret_key ='123' # must be when we use session, for every project
@@ -78,6 +83,50 @@ def Assignment9_func():
             return render_template('Assignment9.html')
     return render_template('Assignment9.html')
 
+@app.route('/Assignment11')
+def Assignment11_func():
+    return render_template('Assignment11.html')
+
+@app.route('/Assignment11/users')
+def assignment11_users_fun():
+    return_dict = {}
+    query = 'select * from users_10;'
+    users = interact_db(query=query, query_type='fetch')
+    for user in users:
+        return_dict[f'user_{user.user_email}'] = {
+            'status': 'success',
+            'name': user.user_name,
+            'email': user.user_email,
+        }
+    return jsonify(return_dict)
+
+@app.route('/Assignment11/outer_source')
+def assignment11_outer_source_fun():
+    return render_template('/outer_source.html')
+
+
+def get_user(id):
+    users = []
+    if (id != ""): # in case there is id
+        user_id = int(id)
+        res = requests.get(f'https://reqres.in/api/users/{user_id}')
+        res = res.json()
+        users.append(res)
+    else: # there is no ID - return all users
+        length = len(requests.get(f'https://reqres.in/api/users').json()['data'])
+        for i in range(1, length+1):
+            res = requests.get(f'https://reqres.in/api/users/{i}')
+            res = res.json()
+            users.append(res)
+    return users
+
+@app.route('/backend')
+def backend_func():
+    users = get_user("")
+    if "user_id" in request.args:
+        user_id = request.args['user_id']
+        users = get_user(user_id)
+    return render_template('Assignment11.html', users=users)
 
 
 if __name__ == '__main__':

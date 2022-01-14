@@ -3,5 +3,22 @@
 {% block title %} Backend {% endblock %}
 
 {% block content %}
+    <h1> Backend </h1>
+    <h2>Pockemons</h2>
+    <form action="/req_backend">
+        <input type="number" name = "number">
+        <input type="submit" value="Get Pockemons">
+    </form>
+
+    {% if pockemons %}
+        {% for pokemon in pockemons %}
+            <h3>Pockemon {{ pokemon.id }}: </h3>
+            <img src="{{ pokemon.sprites.front_default }}" alt="pic">
+            <h4>Name: {{ pokemon.name }}</h4>
+            <h4>height: {{ pokemon.height }}</h4>
+            <h4>Weight: {{ pokemon.weight }}</h4>
+            <hr>
+        {% endfor %}
+    {% endif %}
 
 {% endblock %}

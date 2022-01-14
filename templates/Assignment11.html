@@ -1,0 +1,45 @@
+{% extends 'base8.html' %}
+{% block title %} Assignment11 Page {% endblock %}
+
+{% block content %}
+    {% set page_name = 'Assignment 11' %}
+    <h1>Welcome to {{page_name}} Page</h1>
+    <!--<h2>Welcome, {{session.username | default('Guest', true)}} </h2>-->
+    {{ super () }}
+    <hr>
+    <a href="/Assignment11/users"> Click to see all users in Json format</a>
+    <hr>
+    <!--<a href="/Assignment11/outer_source"> Click to see all data from out source </a>-->
+
+    <h2> From Fronted (fetch js)</h2>
+    <input id="user_id" type="number" name="number">
+    <button onclick="get_users()">Get User</button>
+
+    <h2> From Backend</h2>
+    <form action="/backend">
+        <input type="number" name="user_id">
+        <input type="submit" value="Get User">
+    </form>
+
+{% if users %}
+    {% for user in users %}
+        <h3> User {{ user['data']['id'] }}: </h3>
+        <img src= "{{ user['data']['avatar'] }}" alt="pic">
+        <h4> Name: {{ user['data']['first_name'] }} {{ user['data']['last_name'] }}</h4>
+        <h4> Email: {{ user['data']['email'] }}</h4>
+        <hr>
+    {% endfor %}
+{% endif %}
+
+<!--
+{% if user %}
+    <h3> User {{ user['data']['id'] }}: </h3>
+    <img src= "{{ user['data']['avatar'] }}" alt="pic">
+    <h4> Name: {{ user['data']['first_name'] }} {{ user['data']['last_name'] }}</h4>
+    <h4> Email: {{ user['data']['email'] }}</h4>
+    <hr>
+{% endif %}
+-->
+<script src="../static/fetch.js"></script>
+
+{% endblock %}
